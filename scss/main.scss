@@ -8,20 +8,35 @@ $font-stack: "IBM Plex Sans", sans-serif;
 body{
     margin: 0;
     padding: 0;
+    background-color: $primary-color;
+    font-family: $font-stack;
 }
 nav {
     background-color: $primary-color;
-    width: 100%;
-    height: 135px;
+    width: auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: $primary-text-color;
+    p{
+        font-size: 1.5em;
+        padding-left: 30px;
+    }
+    .icons{
+        display: flex;
+        gap: 15px;
+        button{
+            background: none;
+            border-style: none;
+        }
+    }
 }
 main {
-    background-color: $secundary-color;
+    background-color: $primary-color;
     width: 100%;
-    height: 150px;
+    height: 85%;
 }
 footer {
     $background: #FA9500;
     background-color: $background;
-    width: 100%;
-    height: 80px;
 }
