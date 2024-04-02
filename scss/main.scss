@@ -3,6 +3,8 @@ $secundary-color: #FFDAC6;
 $tertiary-color: #BABD8D;
 $primary-text-color: #7C6A0A;
 $font-stack: "IBM Plex Sans", sans-serif;
+$paragraph-size: 1.5em;
+$quaternion-color: #FA9500;
 
 
 body{
@@ -19,7 +21,7 @@ nav {
     justify-content: space-between;
     color: $primary-text-color;
     p{
-        font-size: 1.5em;
+        font-size: $paragraph-size;
         padding-left: 30px;
     }
     .icons{
@@ -31,12 +33,111 @@ nav {
         }
     }
 }
+
+article{
+    width: auto;
+    color: $primary-text-color;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    .impact-section{
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        gap: 25px;
+    }
+    h1{
+        font-size: 3em;
+        padding: 0;
+        margin: 0;
+    }
+    p{
+        font-size: $paragraph-size;
+    }
+    button{
+        background-color: $quaternion-color;
+        border-style: none;
+        width: 12vw;
+        padding: 15px;
+        border-radius: 35px;
+        color: $primary-color;
+        font-size: 1em;
+    }
+    img{
+        width: 25vw;
+        border-radius: 20px;
+    }
+}
+section{
+    width: 100%;
+    height: auto;
+    h2{
+        color: $primary-text-color;
+        font-size: 1.9em;
+    }
+    .healthcare{
+        padding-bottom: 60px;
+        h2{
+            font-weight: 300;
+            padding-bottom: 20px;
+        }
+        .card-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 200px;
+            row-gap: 80px;
+            width: auto;
+            height: auto;
+        }
+        .product-card{
+            width: 12vw;
+            height: 45vh;
+            background-color: $secundary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+            .icon{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding-bottom: 12px;
+                svg{
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        }
+        .product-image{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+            img{
+                width: 16vw;
+                height: 30vh;
+                border-radius: 6px;
+            }
+        }   
+    }
+    .furniture{
+        @extend .healthcare;
+        .product-card{
+            background-color: $tertiary-color;
+        }
+    }
+}
+
 main {
     background-color: $primary-color;
     width: 100%;
     height: 85%;
 }
 footer {
-    $background: #FA9500;
-    background-color: $background;
+    background-color: $quaternion-color;
 }
