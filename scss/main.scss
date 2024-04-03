@@ -6,6 +6,18 @@ $font-stack: "IBM Plex Sans", sans-serif;
 $paragraph-size: 1.5em;
 $quaternion-color: #FA9500;
 
+@mixin flexCenter($direction,$content,$align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+@mixin buttonStyle{
+    button{
+        background: none;
+        border-style: none;
+    }
+}
 
 body{
     margin: 0;
@@ -17,8 +29,7 @@ nav {
     background-color: $primary-color;
     width: auto;
     padding: 15px;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row,space-between,center);
     color: $primary-text-color;
     p{
         font-size: $paragraph-size;
@@ -27,10 +38,7 @@ nav {
     .icons{
         display: flex;
         gap: 15px;
-        button{
-            background: none;
-            border-style: none;
-        }
+        @include buttonStyle();
     }
 }
 
@@ -40,8 +48,7 @@ article{
     padding-left: 45px;
     padding-right: 45px;
     padding-top: 70px;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row,space-between ,center );
     .impact-section{
         display: flex;
         flex-direction: column;
@@ -56,14 +63,17 @@ article{
     p{
         font-size: $paragraph-size;
     }
+    @include buttonStyle;
     button{
         background-color: $quaternion-color;
-        border-style: none;
         width: 12vw;
         padding: 15px;
         border-radius: 35px;
         color: $primary-color;
         font-size: 1em;
+        &:hover{
+            transform: scale(1.1);
+        }
     }
     img{
         width: 25vw;
@@ -71,8 +81,6 @@ article{
     }
 }
 section{
-    width: 100%;
-    height: auto;
     h2{
         color: $primary-text-color;
         font-size: 1.9em;
@@ -84,12 +92,11 @@ section{
             padding-bottom: 20px;
         }
         .card-section{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flexCenter(row,space-evenly,center);
             flex-wrap: wrap;
-            column-gap: 200px;
-            row-gap: 80px;
+            /*column-gap: 200px;
+            row-gap: 80px;*/
+            gap: 200px;
             width: auto;
             height: auto;
         }
@@ -133,11 +140,81 @@ section{
     }
 }
 
-main {
-    background-color: $primary-color;
-    width: 100%;
-    height: 85%;
+.about-us{
+    padding-bottom: 60px;
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mission-section{
+        @include flexCenter(row, space-evenly,center );
+        .earth{
+            display: flex; 
+            gap: 40px;
+            width: 34vw;
+            color: #E86424;
+            img{
+                object-fit: contain;
+            }
+            p{
+                text-align: center;
+                font-size: $paragraph-size
+            }
+        }
+        .innovation{
+        @extend .earth; 
+        }
+    }
 }
-footer {
+.galleriy{
+    margin: 60px;
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .galleriy-images{
+        @include flexCenter(row,space-between,center);
+        img{
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+        
+    }
+}
+.location{
+    color: #E86424;
+    h2{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .map{
+        @include flexCenter(row,center ,center );
+        padding-bottom: 50px;
+    }
+    h3,p{
+        font-size: $paragraph-size;
+    }
+}
+@mixin footer-pie{
     background-color: $quaternion-color;
+}
+footer{
+    @include footer-pie;
+    color: aliceblue;
+    width: 100%;
+    height: auto;
+    color: white;
+    box-sizing: border-box;
+    padding: 40px 0 0 40px;
+    .social-media{
+        @include flexCenter(row,center ,center );
+        gap: 40px;
+        padding-bottom: 40px;
+    }
 }
